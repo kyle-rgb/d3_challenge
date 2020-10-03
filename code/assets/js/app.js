@@ -1,5 +1,6 @@
-var svgHeight = 600
-var svgWidth = 1000
+
+var svgHeight = 500
+var svgWidth = 900
 
 var svg = d3.select("#scatter").append("svg").attr("width", svgWidth).attr("height", svgHeight)
 
@@ -15,7 +16,7 @@ var chartHeight = svgHeight - margin.top - margin.bottom
 
 var chartGroup = svg.append("g").attr("transform", `translate(${margin.left}, ${margin.top})`);
 
-
+var div = d3.select("body").append("div").attr("class", "tooltip").style("opacity", 0)
 
 d3.csv("assets/data/data.csv").then(function (states){
     for (state of states){
@@ -68,7 +69,5 @@ d3.csv("assets/data/data.csv").then(function (states){
         .attr("font-size", "12px")
         .attr("text-anchor", "middle")
         .attr("fill", "black")
-
-
     
 })
